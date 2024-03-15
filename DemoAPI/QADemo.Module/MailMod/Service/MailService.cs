@@ -1,5 +1,7 @@
 using System.Net;
 using System.Net.Mail;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using QADemo.Module.MailMod.Option;
@@ -7,12 +9,12 @@ using static QADemo.Module.MailMod.Bo.MailMessageBo;
 
 namespace QADemo.Module.MailMod.Bo
 {
-    public class MailSend
+    public class MailService
     {
-        private readonly ILogger<MailSend> _logger;
+        private readonly ILogger<MailService> _logger;
         private readonly MailOption _option;
         private readonly SmtpClient? _smtpClient;
-        public MailSend(ILogger<MailSend> logger,
+        public MailService(ILogger<MailService> logger,
             IOptions<MailOption> options)
         {
             _logger = logger;
@@ -41,6 +43,10 @@ namespace QADemo.Module.MailMod.Bo
             var result = false;
             if (_smtpClient != null)
             {
+
+                string jsonString = JsonSerializer.Serialize(mmb);
+                _logger.LogInformation(jsonString);
+
                 try
                 {
                     var mail = new MailMessage();

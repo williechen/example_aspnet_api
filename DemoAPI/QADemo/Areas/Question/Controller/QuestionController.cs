@@ -17,6 +17,7 @@ namespace QADemo.Areas.Question.Controller
         public async Task<IActionResult> Index()
         {
             IEnumerable<Domain.Entities.Question> questions = await _service.GetQuestions();
+            await _service.GetQuestion(8);
             return Ok(questions);
         }
 

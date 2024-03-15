@@ -1,4 +1,5 @@
 ﻿using QADemo.Domain.TableDao;
+using QADemo.Module.MailMod.Bo;
 
 namespace QADemo.Areas.Question.Service;
 
@@ -7,10 +8,13 @@ public class QuestionService
     private readonly QuestionDao _questionDao;
     private readonly DBRawExecute _rawExecute;
 
-    public QuestionService(QuestionDao questionDao, DBRawExecute rawExecute)
+    private readonly MailService _mailService;
+
+    public QuestionService(QuestionDao questionDao, DBRawExecute rawExecute, MailService mailService)
     {
         _questionDao = questionDao;
         _rawExecute = rawExecute;
+        _mailService = mailService;
     }
 
     public async Task<IEnumerable<Domain.Entities.Question>> GetQuestions()
@@ -21,6 +25,16 @@ public class QuestionService
 
     public async Task<Domain.Entities.Question?> GetQuestion(int? id)
     {
+        MailMessageBo bo = new MailMessageBo
+        {
+            From = "",
+            To = "",
+            Subject = "test",
+            Body = "test"
+        };
+
+        await _mailService.Run(bo);
+
         return await _questionDao.GetOneAsync(id);
     }
 

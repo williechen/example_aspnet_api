@@ -1,5 +1,6 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace QADemo.Domain.Bases;
 
@@ -55,7 +56,7 @@ public class TableDao<T>
         return (totleCount, results);
     }
 
-    public async Task<T?> GetOneAsync(long? id)
+    public async Task<T?> GetOneAsync(int? id)
     {
         return await dbSet.FindAsync(id);
     }

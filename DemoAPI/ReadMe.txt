@@ -36,6 +36,8 @@
     dotnet add package Microsoft.Extensions.DependencyInjection.Abstractions
   Dapper(SQL -> Object)
     dotnet add package Dapper
+  SFTP
+    dotnet add package ssh.net
 
 資料庫連線
   DefaultConnection: "Server=localhost;Port=5432;Database=yourDataBase;User Id=yourUseId;Password=yourPassword"
