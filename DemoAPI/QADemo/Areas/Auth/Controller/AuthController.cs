@@ -25,7 +25,7 @@ namespace QADemo.Areas.Auth.Controller
             return Ok(jwtToken);
         }
 
-        [Authorize]
+        [Authorize(Roles = "Auth")]
         [HttpPost]
         public IActionResult GetUserName()
         {
