@@ -84,12 +84,14 @@ public class TableDao<T>
         return await _db.SaveChangesAsync();
     }
 
-    public async Task<int> DeleteAsync(T entity){
+    public async Task<int> DeleteAsync(T entity)
+    {
         dbSet.Remove(entity);
         return await _db.SaveChangesAsync();
     }
 
-    public async Task<int> DeleteRangeAsync(IEnumerable<T> entities){
+    public async Task<int> DeleteRangeAsync(IEnumerable<T> entities)
+    {
         dbSet.RemoveRange(entities);
         return await _db.SaveChangesAsync();
     }

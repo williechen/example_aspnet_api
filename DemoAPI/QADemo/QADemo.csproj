@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\QADemo.Domain\QADemo.Domain.csproj" />
+    <ProjectReference Include="..\QADemo.Module\QADemo.Module.csproj" />
   </ItemGroup>
 
 </Project>

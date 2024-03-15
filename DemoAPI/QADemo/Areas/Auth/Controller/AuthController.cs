@@ -28,8 +28,8 @@ namespace QADemo.Areas.Auth.Controller
         [Authorize]
         [HttpPost]
         public IActionResult GetUserName()
-        { 
-            Console.WriteLine("User="+User.Identity?.Name);
+        {
+            Console.WriteLine("User=" + User.Identity?.Name);
             return Ok("1111111");
         }
 

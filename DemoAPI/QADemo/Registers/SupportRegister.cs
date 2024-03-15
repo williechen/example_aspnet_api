@@ -7,14 +7,14 @@ namespace QADemo.Registers;
 
 public class SupportRegister
 {
-    public static void NewService(IServiceCollection service)
+    public static void NewService(IServiceCollection services)
     {
 
-        service.AddScoped<DBRawExecute>();
+        services.AddScoped<JwtHelpers>();
 
-        service.AddScoped<AccountSupport>();
-        service.AddScoped<AnswerSupport>();
-        service.AddScoped<AuthSupport>();
-        service.AddScoped<QuestionSupport>();
+        services.AddScoped<AccountSupport>();
+        services.AddScoped<AnswerSupport>();
+        services.AddScoped<AuthSupport>();
+        services.AddScoped<QuestionSupport>();
     }
 }

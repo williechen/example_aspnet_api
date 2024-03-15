@@ -38,7 +38,7 @@ public class DBRawExecute
 
                 var dr = cmd.ExecuteReader();
 
-                for(int i=0;i<dr.FieldCount;i++)
+                for (int i = 0; i < dr.FieldCount; i++)
                 {
                     Console.WriteLine(dr.GetName(i));
                 }

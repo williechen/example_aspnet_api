@@ -8,15 +8,13 @@ namespace QADemo.Registers;
 public class ServiceRegister
 {
 
-    public static void NewService(IServiceCollection service)
+    public static void NewService(IServiceCollection services)
     {
 
-        service.AddScoped<JwtHelpers>();
-
-        service.AddScoped<AccountService>();
-        service.AddScoped<AnswerService>();
-        service.AddScoped<AuthService>();
-        service.AddScoped<QuestionService>();
+        services.AddScoped<AccountService>();
+        services.AddScoped<AnswerService>();
+        services.AddScoped<AuthService>();
+        services.AddScoped<QuestionService>();
     }
 
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using QADemo.Domain.Bases;
+using QADemo.Module.MailMod.Option;
 using QADemo.Registers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -69,6 +70,19 @@ builder.Services
     });
 
 builder.Services.AddAuthorization();
+
+#region Mail
+{
+    var section = builder.Configuration.GetSection(MailOption.Section);
+    builder.Services.Configure<MailOption>(options =>
+    {
+        options.Host = section.GetValue<string>(nameof(MailOption.Host))!;
+        options.Port = section.GetValue<int>(nameof(MailOption.Port))!;
+        options.Username = section.GetValue<string>(nameof(MailOption.Username))!;
+        options.Password = section.GetValue<string>(nameof(MailOption.Password))!;
+    });
+}
+#endregion
 
 
 var app = builder.Build();

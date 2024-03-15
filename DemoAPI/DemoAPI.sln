@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QADemo", "QADemo\QADemo.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QADemo.Domain", "QADemo.Domain\QADemo.Domain.csproj", "{0CF1382D-B3FF-4F30-81E0-5AB796B4A0C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QADemo.Module", "QADemo.Module\QADemo.Module.csproj", "{15E81F1D-5CC3-4D68-9C97-DD2B60D256D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{0CF1382D-B3FF-4F30-81E0-5AB796B4A0C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CF1382D-B3FF-4F30-81E0-5AB796B4A0C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CF1382D-B3FF-4F30-81E0-5AB796B4A0C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15E81F1D-5CC3-4D68-9C97-DD2B60D256D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15E81F1D-5CC3-4D68-9C97-DD2B60D256D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15E81F1D-5CC3-4D68-9C97-DD2B60D256D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15E81F1D-5CC3-4D68-9C97-DD2B60D256D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
