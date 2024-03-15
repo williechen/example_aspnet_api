@@ -1,5 +1,6 @@
 ﻿using QADemo.Domain.TableDao;
 using QADemo.Module.MailMod.Bo;
+using QADemo.Module.SftpMod.Service;
 
 namespace QADemo.Areas.Question.Service;
 
@@ -8,13 +9,13 @@ public class QuestionService
     private readonly QuestionDao _questionDao;
     private readonly DBRawExecute _rawExecute;
 
-    private readonly MailService _mailService;
+    private readonly SftpService _sftpService;
 
-    public QuestionService(QuestionDao questionDao, DBRawExecute rawExecute, MailService mailService)
+    public QuestionService(QuestionDao questionDao, DBRawExecute rawExecute, SftpService sftpService)
     {
         _questionDao = questionDao;
         _rawExecute = rawExecute;
-        _mailService = mailService;
+        _sftpService = sftpService;
     }
 
     public async Task<IEnumerable<Domain.Entities.Question>> GetQuestions()
@@ -25,15 +26,7 @@ public class QuestionService
 
     public async Task<Domain.Entities.Question?> GetQuestion(int? id)
     {
-        MailMessageBo bo = new MailMessageBo
-        {
-            From = "",
-            To = "",
-            Subject = "test",
-            Body = "test"
-        };
-
-        await _mailService.Run(bo);
+        _sftpService.GetFileList("/");
 
         return await _questionDao.GetOneAsync(id);
     }

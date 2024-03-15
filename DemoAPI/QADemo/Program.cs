@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using QADemo.Domain.Bases;
 using QADemo.Module.MailMod.Option;
+using QADemo.Module.SftpMod.Option;
 using QADemo.Registers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -80,6 +81,19 @@ builder.Services.AddAuthorization();
         options.Port = section.GetValue<int>(nameof(MailOption.Port))!;
         options.Username = section.GetValue<string>(nameof(MailOption.Username))!;
         options.Password = section.GetValue<string>(nameof(MailOption.Password))!;
+    });
+}
+#endregion
+
+#region Sftp
+{
+    var section = builder.Configuration.GetSection(SftpOption.Section);
+    builder.Services.Configure<SftpOption>(options =>
+    {
+        options.Host = section.GetValue<string>(nameof(SftpOption.Host))!;
+        options.Port = section.GetValue<int>(nameof(SftpOption.Port))!;
+        options.Username = section.GetValue<string>(nameof(SftpOption.Username))!;
+        options.Password = section.GetValue<string>(nameof(SftpOption.Password))!;
     });
 }
 #endregion
