@@ -1,7 +1,7 @@
 ﻿using QADemo.Domain.Bases;
 using QADemo.Domain.Entities;
 
-namespace QADemo.Domain.TableDao;
+namespace QADemo.Domain.DbActions.TableDaos;
 
 public class AccountDao : TableDao<Account>
 {

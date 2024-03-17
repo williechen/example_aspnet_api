@@ -1,8 +1,8 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using Npgsql;
+using QADemo.Domain.Bases;
 
-namespace QADemo.Domain.Bases;
+namespace QADemo.Domain.DbActions;
 
 public class TableDao<T>
   where T : class
